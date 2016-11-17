@@ -1,0 +1,12 @@
+## Customize the test machine
+machine:
+   services:
+    - docker
+
+  timezone:
+    Europe/Paris # Set the timezone
+
+  dependencies:
+  override:
+    - docker info
+    - docker build --rm=false -t PatrckBrs/Docker_Circleci_test .
