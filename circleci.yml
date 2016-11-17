@@ -10,3 +10,7 @@ machine:
   override:
     - docker info
     - docker build --rm=false -t PatrckBrs/Docker_Circleci_test .
+    
+  test:
+  override:
+    - docker run --rm -ti $(docker ps -a -q) /bin/bash
