@@ -1,0 +1,15 @@
+machine:
+   services:
+    - docker
+
+  timezone:
+    Europe/Paris # Set the timezone
+
+  dependencies:
+  override:
+    - docker info
+    - docker build --rm=false -t patrckbrs/docker_circleci_test .
+    
+  test:
+  override:
+    - docker run -d -p 22:22 patrckbrs/docker_circleci_test; sleep 10
